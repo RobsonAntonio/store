@@ -1,0 +1,64 @@
+
+.card{
+  margin-top: 28px;
+  margin-left: 15px;
+  justify-content: space-between;
+  align-items: center;
+  width: 379px;
+  height: 95px;
+  background: #FFFFFF;
+  border-radius: 8px;
+  display: flex;
+}
+
+.icon{
+  width: 18px;
+  height: 18px;
+  background-color: #000000;
+  border: none;
+  border-radius: 50px;
+  color: #fff;
+
+}
+
+.cardIcon{
+  margin-bottom: 85px;
+}
+
+.cardImage{
+width: 50px;
+height: 61px;
+align-items: center;
+justify-content: center;
+padding: 1rem;
+}
+
+
+.cardName{
+font-family: 'Montserrat';
+font-style: normal;
+font-weight: 400;
+font-size: 16px;
+color: #2C2C2C;
+padding-top: 14px;
+padding-left: 14px;
+align-items: center;
+justify-content: center;
+}
+
+
+
+.cardPrice{
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 17px;
+  color: #000000;
+  align-items: center;
+justify-content: center;
+padding-right:15px;
+
+}
+
+
