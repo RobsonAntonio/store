@@ -53,7 +53,6 @@ export function Header() {
         <ModalProducts
           isOpen={modalVisible}
           onRequestClose={handleCloseModal}
-          id={1}
         />
       )}
     </header>

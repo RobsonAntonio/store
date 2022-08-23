@@ -3,6 +3,7 @@ import styles from "./styles.module.scss";
 import { FiX } from "react-icons/fi";
 import { ProductCardList } from "../ProductCardList/ProductCardList";
 import { useState } from "react";
+import { useSelector } from "react-redux";
 
 interface ModalProductsProps {
   isOpen: boolean;
@@ -13,40 +14,19 @@ interface ModalProductsProps {
 export default function ModalProducts({
   isOpen,
   onRequestClose,
-  id,
 }: ModalProductsProps) {
-  const [products, setProducts] = useState<any>([
-    {
-      name: "iphone",
-      price: "110,00",
-      description: "fgsgs sgd sg sgd",
-      photo:
-        "https://mks-sistemas.nyc3.digitaloceanspaces.com/products/hyperx-cloudrevolver.webp",
-    },
-    {
-      name: "iphddone",
-      price: "110,00",
-      description: "fgsgs sgd sg sgd",
-      photo:
-        "https://mks-sistemas.nyc3.digitaloceanspaces.com/products/ipadair.webp",
-    },
-  ]);
-  const customStyle = {
-    content: {
-      top: "0%",
-      bottom: "0%",
-      left: "70%",
-      right: "0%",
-      backgroundColor: "#0F52BA",
-    },
-  };
+  const cart = useSelector((state) => state.cart);
 
   const handleFinalize = () => {
     alert("Ok");
   };
 
   return (
-    <Modal isOpen={isOpen} onRequestClose={onRequestClose} style={customStyle}>
+    <Modal
+      isOpen={isOpen}
+      onRequestClose={onRequestClose}
+      className={styles.modal}
+    >
       <div className={styles.header}>
         <h2 className={styles.title}>Carinho de compras</h2>
         <button
@@ -60,21 +40,32 @@ export default function ModalProducts({
       </div>
 
       <div className={styles.cardList}>
-        {products.map((products: { id: any }) => (
-          <ProductCardList
-            name={""}
-            price={0}
-            photo={""}
-            key={products.id}
-            {...products}
-          />
-        ))}
+        {cart.cartItems.length === 0 ? (
+          <div className={styles.textEmpty}>
+            <p>Seu carrinho está vazio no momento...</p>
+          </div>
+        ) : (
+          <div>
+            {cart.cartItems?.map(
+              (cartItem: {
+                id: number;
+                photo: string;
+                name: string;
+                price: number;
+                cartQuantity: number;
+                Quantity: number;
+              }) => (
+                <ProductCardList key={cartItem.id} {...cartItem} />
+              )
+            )}
+          </div>
+        )}
       </div>
 
       <footer className={styles.footer}>
-        <div className={styles.value}>
-          <h2>Total:</h2>
-          <h2>R$100,00</h2>
+        <div className={styles.subTotal}>
+          <span className={styles.total}>Total: </span>
+          <span className={styles.value}>R$ {cart.cartTotalAmount}</span>
         </div>
         <button
           className={styles.buttonFinalize}

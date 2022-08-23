@@ -8,7 +8,6 @@ import styles from "../../styles/Home.module.scss";
 import { Footer } from "../components/Footer";
 import { addItem } from "../store/cart";
 import { useDispatch } from "react-redux";
-
 import { addToCart } from "../store/cart/cartSlice";
 
 const Home: NextPage = () => {
@@ -28,7 +27,8 @@ const Home: NextPage = () => {
 
   function handleAddToCart(product: []) {
     dispatch(addToCart(product));
-    console.log("AQUI", product);
+
+    // console.log("AQUI", product);
   }
 
   return (
@@ -37,7 +37,7 @@ const Home: NextPage = () => {
         <title>MKS Sistemas</title>
       </Head>
       <Header />
-      <div className={styles.card}>
+      <div className={styles.grid}>
         {products.map((products: any) => (
           <ProductCard
             handleAddToCart={handleAddToCart}

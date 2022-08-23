@@ -1,54 +1,98 @@
 
-.card{
-  margin-top: 28px;
-  margin-left: 15px;
-  justify-content: space-between;
-  align-items: center;
+.cartList{
+  margin-left: 10px;
   width: 379px;
   height: 95px;
+  top:6px;
   background: #FFFFFF;
   border-radius: 8px;
+  align-items: center;
+  justify-content: space-between;
   display: flex;
+  margin-bottom: 28px;
 }
 
-.icon{
-  width: 18px;
-  height: 18px;
-  background-color: #000000;
-  border: none;
-  border-radius: 50px;
-  color: #fff;
-
-}
-
-.cardIcon{
-  margin-bottom: 85px;
-}
-
-.cardImage{
-width: 50px;
-height: 61px;
-align-items: center;
-justify-content: center;
+.itemImage{
+  width: 50px;
+  height: 61px;
+top:304px;
+left:1022px;
 padding: 1rem;
+
 }
 
+.itemName{
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 17px;
+  color: #2C2C2C;
+  align-items: center;
+  justify-content: center;
+  margin-right: 5px;
 
-.cardName{
-font-family: 'Montserrat';
+}
+
+.text{
+  font-family: 'Montserrat';
 font-style: normal;
 font-weight: 400;
-font-size: 16px;
-color: #2C2C2C;
-padding-top: 14px;
-padding-left: 14px;
+font-size: 5px;
+line-height: 6px;
+color: #000000;
+padding: 2px;
+}
+
+.itemProductQuantity{
+  width: 50px;
+  height:19px;
+  top:44px;
+  left: 212px;
+  background: #FFFFFF;
+border: 0.3px solid #BFBFBF;
+box-sizing: border-box;
+border-radius: 4px;
+display: flex;
+align-items: center;
+justify-content: center;
+margin-bottom: 10px;
+
+}
+
+.iconQtd{
+  background-color: transparent;
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 15px;
+  border: none;
+  color: #000000;
+}
+
+.count{
+  font-family: 'Montserrat';
+font-style: normal;
+font-weight: 400;
+font-size: 8px;
+line-height: 10px;
+color: #000000;
+padding-left: 2px;
+padding-right: 2px;
 align-items: center;
 justify-content: center;
 }
 
 
+.div{
+  padding-left: 2px;
+padding-right: 2px;
+padding-bottom: 3px;
+color: #BFBFBF;
+}
 
-.cardPrice{
+.itemProductTotalPrice{
   font-family: 'Montserrat';
   font-style: normal;
   font-weight: 700;
@@ -57,8 +101,20 @@ justify-content: center;
   color: #000000;
   align-items: center;
 justify-content: center;
-padding-right:15px;
+padding-right: 15px;
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
 
 

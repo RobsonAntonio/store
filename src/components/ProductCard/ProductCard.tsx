@@ -23,14 +23,14 @@ export function ProductCard({
       <img src={photo} alt="" className={styles.cardImage} />
       <div className={styles.cardNamePrice}>
         <h1 className={styles.cardName}>{name}</h1>
-        <h1 className={styles.cardPrice}>R${price}</h1>
+        <p className={styles.cardPrice}>R${price}</p>
       </div>
       <p className={styles.cardDescription}>{description}</p>
       <button
         className={styles.cardButton}
         onClick={() => handleAddToCart(product)}
       >
-        <IoBagHandleSharp className="cardIconButton" />
+        <IoBagHandleSharp style={{ paddingRight: "17px" }} />
         COMPRAR
       </button>
     </div>
