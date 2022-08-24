@@ -13,8 +13,8 @@ type TProducts = {
   price: number;
   description: string;
   photo: string;
-  product: TProductsItem[];
-  handleAddToCart: () => void;
+  product: TProductsItem;
+  handleAddToCart: (product: TProductsItem) => void;
 };
 
 export function ProductCard({
