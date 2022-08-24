@@ -6,18 +6,23 @@ import { Header } from "../components/Header";
 import { ProductsService } from "../services/ProductsService";
 import styles from "../../styles/Home.module.scss";
 import { Footer } from "../components/Footer";
-import { addItem } from "../store/cart";
 import { useDispatch } from "react-redux";
 import { addToCart } from "../store/cart/cartSlice";
+import { CardSkeleton } from "../components/CardSkeleton";
+import Skeleton from "react-loading-skeleton";
+import "react-loading-skeleton/dist/skeleton.css";
 
 const Home: NextPage = () => {
   const [products, setProducts] = useState<any>([]);
   const dispatch = useDispatch();
+  const [isLoading, setLoading] = useState(false);
 
   const Products = async () => {
+    setLoading(true);
     await ProductsService.FindAllProducts().then((response) => {
       //console.log(response.data.products);
       setProducts(response.data.products);
+      setLoading(false);
     });
   };
 
@@ -38,6 +43,8 @@ const Home: NextPage = () => {
       </Head>
       <Header />
       <div className={styles.grid}>
+        {isLoading && <CardSkeleton cards={8} />}
+
         {products.map((products: any) => (
           <ProductCard
             handleAddToCart={handleAddToCart}

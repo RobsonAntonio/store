@@ -1,6 +1,9 @@
 .cardList{
   margin-left: 47px ;
- }
+  overflow-y: scroll;
+  height: 410px;
+}
+  
 
 .header{
     align-items: center;
@@ -51,6 +54,7 @@ margin-left: 47px;
 
 
 .value{
+
   font-family: 'Montserrat';
 font-style: normal;
 font-weight: 700;
@@ -62,8 +66,7 @@ color: #FFFFFF;
   margin-bottom: 2rem;
   margin-top: 2rem;
   margin-left: 47px ;
-  width: 92px;
-height: 15px;
+ height: 15px;
 top: 870px;
 left: 1285px;
 padding-right: 63px;

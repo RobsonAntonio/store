@@ -4,13 +4,20 @@ import "react-toastify/dist/ReactToastify.css";
 import type { AppProps } from "next/app";
 import { Provider } from "react-redux";
 import store from "../store/store";
+import { getTotals } from "../store/cart/cartSlice";
+import { SkeletonTheme } from "react-loading-skeleton";
+import "react-loading-skeleton/dist/skeleton.css";
 
 function MyApp({ Component, pageProps }: AppProps) {
+  store.dispatch(getTotals());
+
   return (
-    <Provider store={store}>
-      <ToastContainer />
-      <Component {...pageProps} />
-    </Provider>
+    <SkeletonTheme baseColor="#929292" highlightColor="#575757">
+      <Provider store={store}>
+        <ToastContainer />
+        <Component {...pageProps} />
+      </Provider>
+    </SkeletonTheme>
   );
 }
 

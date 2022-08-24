@@ -15,10 +15,11 @@ type products = {
 };
 
 export function Header() {
-  const [showModal, setShowModal] = useState(false);
   const [modalItem, setModalItem] = useState<products>();
   const [modalVisible, setModalVisible] = useState(false);
 
+  const length = useSelector((state: any) => state.cart.cartItems.length);
+  console.log(length);
   function handleCloseModal() {
     setModalVisible(false);
   }
@@ -31,8 +32,6 @@ export function Header() {
   }
 
   Modal.setAppElement("#__next");
-
-  const length = useSelector((state: any) => state.cart.length);
 
   return (
     <header className={styles.headerContainer}>
@@ -53,6 +52,7 @@ export function Header() {
         <ModalProducts
           isOpen={modalVisible}
           onRequestClose={handleCloseModal}
+          id={0}
         />
       )}
     </header>

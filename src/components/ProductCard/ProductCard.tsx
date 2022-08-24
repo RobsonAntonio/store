@@ -25,14 +25,18 @@ export function ProductCard({
         <h1 className={styles.cardName}>{name}</h1>
         <p className={styles.cardPrice}>R${price}</p>
       </div>
-      <p className={styles.cardDescription}>{description}</p>
-      <button
-        className={styles.cardButton}
-        onClick={() => handleAddToCart(product)}
-      >
-        <IoBagHandleSharp style={{ paddingRight: "17px" }} />
-        COMPRAR
-      </button>
+      <div>
+        <p className={styles.cardDescription}>{description}</p>
+      </div>
+      <div>
+        <button
+          className={styles.cardButton}
+          onClick={() => handleAddToCart(product)}
+        >
+          <IoBagHandleSharp style={{ paddingRight: "17px" }} />
+          COMPRAR
+        </button>
+      </div>
     </div>
   );
 }

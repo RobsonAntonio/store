@@ -2,8 +2,12 @@ import Modal from "react-modal";
 import styles from "./styles.module.scss";
 import { FiX } from "react-icons/fi";
 import { ProductCardList } from "../ProductCardList/ProductCardList";
-import { useState } from "react";
 import { useSelector } from "react-redux";
+import { useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { getTotals } from "../../store/cart/cartSlice";
+import { toast } from "react-toastify";
+import { formatMoneyLocale } from "../../common/util/money";
 
 interface ModalProductsProps {
   isOpen: boolean;
@@ -15,10 +19,20 @@ export default function ModalProducts({
   isOpen,
   onRequestClose,
 }: ModalProductsProps) {
-  const cart = useSelector((state) => state.cart);
+  const cart = useSelector((state: any) => state.cart);
+  const dispatch = useDispatch();
 
-  const handleFinalize = () => {
-    alert("Ok");
+  useEffect(() => {
+    dispatch(getTotals());
+  }, [cart, dispatch]);
+
+  const handleFinish = () => {
+    toast.success(
+      ` Pedido Finalizado no valor de : R$ ${formatMoneyLocale(
+        cart.cartTotalAmount
+      )}`
+    );
+    window.location.reload();
   };
 
   return (
@@ -28,7 +42,7 @@ export default function ModalProducts({
       className={styles.modal}
     >
       <div className={styles.header}>
-        <h2 className={styles.title}>Carinho de compras</h2>
+        <h2 className={styles.title}>Carrinho de compras</h2>
         <button
           type="button"
           onClick={onRequestClose}
@@ -65,12 +79,14 @@ export default function ModalProducts({
       <footer className={styles.footer}>
         <div className={styles.subTotal}>
           <span className={styles.total}>Total: </span>
-          <span className={styles.value}>R$ {cart.cartTotalAmount}</span>
+          <span className={styles.value}>
+            R$ {formatMoneyLocale(cart.cartTotalAmount)}
+          </span>
         </div>
         <button
+          onClick={handleFinish}
           className={styles.buttonFinalize}
           type="button"
-          onClick={handleFinalize}
         >
           Finalizar Compra
         </button>

@@ -15,9 +15,9 @@
 .itemImage{
   width: 50px;
   height: 61px;
-top:304px;
-left:1022px;
-padding: 1rem;
+  top:304px;
+  left:1022px;
+  padding: 1rem;
 
 }
 
@@ -50,13 +50,14 @@ padding: 2px;
   top:44px;
   left: 212px;
   background: #FFFFFF;
-border: 0.3px solid #BFBFBF;
-box-sizing: border-box;
-border-radius: 4px;
-display: flex;
-align-items: center;
-justify-content: center;
-margin-bottom: 10px;
+  border: 0.3px solid #BFBFBF;
+  box-sizing: border-box;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 10px;
+
 
 }
 
@@ -73,20 +74,20 @@ margin-bottom: 10px;
 
 .count{
   font-family: 'Montserrat';
-font-style: normal;
-font-weight: 400;
-font-size: 8px;
-line-height: 10px;
-color: #000000;
-padding-left: 2px;
-padding-right: 2px;
-align-items: center;
-justify-content: center;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 8px;
+  line-height: 10px;
+  color: #000000;
+  padding-left: 2px;
+  padding-right: 2px;
+  align-items: center;
+  justify-content: center;
 }
 
 
 .div{
-  padding-left: 2px;
+padding-left: 2px;
 padding-right: 2px;
 padding-bottom: 3px;
 color: #BFBFBF;
@@ -100,12 +101,29 @@ color: #BFBFBF;
   line-height: 17px;
   color: #000000;
   align-items: center;
-justify-content: center;
-padding-right: 15px;
+  justify-content: center;
 
 }
 
+.buttonRemove{
+    width: 18px;
+    height: 18px;
+    left: 367px;
+    border-radius: 50px;
+    background: #000000;
+    margin-bottom: 76px;
+  
+}
 
+.icon{
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  color: #FFFFFF;
+
+}
 
 
 

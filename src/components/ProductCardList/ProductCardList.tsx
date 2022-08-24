@@ -1,12 +1,26 @@
 import styles from "./styles.module.scss";
 import { FiX } from "react-icons/fi";
-import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
+import {
+  addToCart,
+  decreaseCart,
+  removeFromCart,
+} from "../../store/cart/cartSlice";
+import { formatMoneyLocale } from "../../common/util/money";
 
 export function ProductCardList(cartItem: any) {
-  const cart = useSelector((state) => state.cart);
+  const dispatch = useDispatch();
 
-  const handlePurchase = () => {
-    alert("fdfd");
+  const handleRemoveFromCart = (cartItem: any) => {
+    dispatch(removeFromCart(cartItem));
+  };
+
+  const handleDecreaseCart = (cartItem: any) => {
+    dispatch(decreaseCart(cartItem));
+  };
+
+  const handleIncreaseCart = (cartItem: any) => {
+    dispatch(addToCart(cartItem));
   };
 
   return (
@@ -21,16 +35,33 @@ export function ProductCardList(cartItem: any) {
       <div>
         <p className={styles.text}>Qtd.</p>
         <div className={styles.itemProductQuantity}>
-          <button className={styles.iconQtd}>-</button>
+          <button
+            onClick={() => handleDecreaseCart(cartItem)}
+            className={styles.iconQtd}
+          >
+            -
+          </button>
           <p className={styles.div}>|</p>
-          <div className={styles.count}>{cartItem.cartQuantity}10</div>
+          <div className={styles.count}>{cartItem.cartQuantity}</div>
           <p className={styles.div}>|</p>
-          <button className={styles.iconQtd}>+</button>
+          <button
+            onClick={() => handleIncreaseCart(cartItem)}
+            className={styles.iconQtd}
+          >
+            +
+          </button>
         </div>
       </div>
       <div className={styles.itemProductTotalPrice}>
-        R${cartItem.price * cartItem.Quantity}
+        R${formatMoneyLocale(cartItem.price * cartItem.cartQuantity)}
       </div>
+      <button
+        type="button"
+        onClick={() => handleRemoveFromCart(cartItem)}
+        className={styles.buttonRemove}
+      >
+        <FiX className={styles.icon} />
+      </button>
     </div>
   );
 }

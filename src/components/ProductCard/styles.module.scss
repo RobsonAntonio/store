@@ -19,16 +19,17 @@ width: 111px;
 height: 138px;
 align-items: center;
 justify-content: center;
-padding: 1rem;
-
+padding: 0.8rem;
+display: flex;
 
 }
 
 .cardNamePrice{
   align-items: center;
-  justify-content: space-between;
-  display: flex;
-
+justify-content: space-between;
+display: flex;
+width: 100%;
+margin-right: 11px;
 }
 
 .cardName{
@@ -38,8 +39,9 @@ padding: 1rem;
   font-size: 16px;
   line-height: 19px;
   color: #2C2C2C;
-padding-top: 14px;
-padding-left: 14px;
+  padding-top: 12px;
+margin-left: 14px;
+
 }
 
 .cardDescription{
@@ -50,8 +52,9 @@ padding-left: 14px;
   line-height: 12px;
   color: #2C2C2C;
   padding-left: 14px;
-  padding-bottom: 12px;
-  padding-top: 8px;
+  padding-bottom: 6px;
+  padding-top: 5px;
+  margin-right: 11px;
 
 }
 
