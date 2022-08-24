@@ -11,6 +11,13 @@ import { addToCart } from "../store/cart/cartSlice";
 import { CardSkeleton } from "../components/CardSkeleton";
 import "react-loading-skeleton/dist/skeleton.css";
 
+type TProductsItem = {
+  name: string;
+  price: number;
+  description: string;
+  photo: string;
+};
+
 const Home: NextPage = () => {
   const [products, setProducts] = useState<any>([]);
   const dispatch = useDispatch();
@@ -29,7 +36,7 @@ const Home: NextPage = () => {
     Products();
   }, []);
 
-  function handleAddToCart(product: []) {
+  function handleAddToCart(product: TProductsItem) {
     dispatch(addToCart(product));
 
     // console.log("AQUI", product);

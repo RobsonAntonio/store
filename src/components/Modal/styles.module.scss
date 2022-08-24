@@ -1,6 +1,6 @@
 .cardList{
   margin-left: 47px ;
-  overflow-y: scroll;
+  overflow-y: auto;
   height: 410px;
 }
   
@@ -16,7 +16,7 @@
 .modal{
 position: absolute;
 width: 486px;
-height: 1024px;
+height: 100%;
 right: 0;
 top: 0px;
 background: #0F52BA;

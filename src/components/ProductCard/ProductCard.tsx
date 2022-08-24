@@ -1,12 +1,19 @@
 import styles from "./styles.module.scss";
 import { IoBagHandleSharp } from "react-icons/io5";
 
-type products = {
+type TProductsItem = {
   name: string;
   price: number;
   description: string;
   photo: string;
-  product: [];
+};
+
+type TProducts = {
+  name: string;
+  price: number;
+  description: string;
+  photo: string;
+  product: TProductsItem[];
   handleAddToCart: () => void;
 };
 
@@ -17,7 +24,7 @@ export function ProductCard({
   photo,
   product,
   handleAddToCart,
-}: products) {
+}: TProducts) {
   return (
     <div className={styles.card}>
       <img src={photo} alt="" className={styles.cardImage} />

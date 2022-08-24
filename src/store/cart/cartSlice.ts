@@ -1,9 +1,23 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { type } from "os";
 import { toast } from "react-toastify";
 
+type TCartItem ={
+  id:number;
+  cartQuantity:number;
+  name: string;
+  price:number;
+}
 
-const initialState ={
-  cartItems:  [],
+type TInitialState ={
+  cartItems: TCartItem[];
+  cartTotalQuantity:number;
+  cartTotalAmount: number;
+}
+
+
+const initialState: TInitialState ={
+  cartItems: [],
   cartTotalQuantity:0,
   cartTotalAmount:0,
 };
@@ -28,7 +42,7 @@ const cartSlice = createSlice({
     },
 
     removeFromCart(state, action){
-      const nextCartItems = state.cartItems.filter((cartItem) => cartItem.id !== action.payload.id)
+      const nextCartItems = state.cartItems.filter((cartItem: { id: number; }) => cartItem.id !== action.payload.id)
     
     state.cartItems = nextCartItems;
     localStorage.setItem("cartItems", JSON.stringify(state.cartItems))
@@ -43,14 +57,14 @@ const cartSlice = createSlice({
       state.cartItems[itemIndex].cartQuantity -= 1;
       toast.info(`Tirando ${action.payload.name} da quantidade do carrinho`)
     }else if(state.cartItems[itemIndex].cartQuantity === 1){
-      const nextCartItems = state.cartItems.filter((cartItem) => cartItem.id !== action.payload.id)
+      const nextCartItems = state.cartItems.filter((cartItem: { id: number; }) => cartItem.id !== action.payload.id)
     
       state.cartItems = nextCartItems;
       toast.error(` ${action.payload.name} removido do carrinho`)
     }
     localStorage.setItem("cartItems", JSON.stringify(state.cartItems))
     },
-    getTotals(state, action){
+    getTotals(state){
       let {total, quantity} = state.cartItems.reduce(
         (cartTotal, cartItem)=>{
           const {price,cartQuantity} = cartItem;
