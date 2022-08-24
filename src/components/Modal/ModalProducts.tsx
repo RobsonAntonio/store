@@ -12,7 +12,6 @@ import { formatMoneyLocale } from "../../common/util/money";
 interface ModalProductsProps {
   isOpen: boolean;
   onRequestClose: () => void;
-  id: number;
 }
 
 export default function ModalProducts({

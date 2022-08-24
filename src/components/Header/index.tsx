@@ -19,7 +19,7 @@ export function Header() {
   const [modalVisible, setModalVisible] = useState(false);
 
   const length = useSelector((state: any) => state.cart.cartItems.length);
-  console.log(length);
+
   function handleCloseModal() {
     setModalVisible(false);
   }
@@ -52,7 +52,6 @@ export function Header() {
         <ModalProducts
           isOpen={modalVisible}
           onRequestClose={handleCloseModal}
-          id={0}
         />
       )}
     </header>
