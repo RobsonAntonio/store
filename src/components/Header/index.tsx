@@ -1,5 +1,5 @@
 import styles from "./styles.module.scss";
-import { BsCart4 } from "react-icons/Bs";
+import { BsCart4 } from "react-icons/bs";
 import { useState } from "react";
 import Modal from "react-modal";
 import { ProductsService } from "../../services/ProductsService";
